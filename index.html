@@ -4,51 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EduPath | Xaricdə Təhsil Konsultasiyası</title>
-    <link rel="stylesheet" href="style.css">
+    
     <link rel="icon" type="image/png" href="favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0; box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body { background-color: #f8fafc; color: #334155; line-height: 1.6; }
+
+        /* Naviqasiya */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 10%; background: #ffffff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+        }
+
+        .logo { font-size: 24px; font-weight: 600; color: #1e293b; text-decoration: none; }
+        .logo span { color: #3b82f6; }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: #64748b; transition: 0.3s; }
+        nav ul li a:hover { color: #3b82f6; }
+
+        /* Hero */
+        header {
+            height: 60vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 { font-size: 3rem; margin-bottom: 20px; color: #0f172a; }
+        .hero-content p { font-size: 1.1rem; color: #475569; max-width: 700px; margin: 0 auto 30px; }
+
+        .btn-main {
+            display: inline-block; padding: 14px 35px; background: #3b82f6; color: #fff;
+            text-decoration: none; border-radius: 50px; font-weight: 600; transition: 0.3s;
+            border: none; cursor: pointer;
+        }
+
+        .btn-main:hover { background: #2563eb; transform: translateY(-2px); }
+
+        /* Ölkələr Grid */
+        #countries { padding: 80px 10%; text-align: center; }
+        .section-title { margin-bottom: 50px; }
+        .country-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px; margin-top: 40px;
+        }
+
+        .country-card {
+            background: #fff; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: 0.4s;
+            border: 1px solid #f1f5f9;
+        }
+
+        .country-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .country-img { width: 100%; height: 180px; object-fit: cover; }
+        .card-body { padding: 20px; text-align: left; }
+        .card-body h3 { color: #1e293b; margin-bottom: 8px; font-size: 1.3rem; }
+        .card-body p { color: #64748b; font-size: 0.9rem; }
+
+        /* Əlaqə */
+        #contact { padding: 80px 10%; background: #ffffff; }
+        .contact-container { max-width: 600px; margin: 0 auto; background: #f8fafc; padding: 40px; border-radius: 25px; }
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
+        .contact-form input, .contact-form select, .contact-form textarea {
+            padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; outline: none;
+        }
+
+        footer { padding: 30px; text-align: center; background: #0f172a; color: #94a3b8; font-size: 0.8rem; }
+    </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Edu<span>Path</span></div>
+        <a href="#" class="logo">Edu<span>Path</span></a>
         <ul>
             <li><a href="#home">Ana Səhifə</a></li>
             <li><a href="#countries">Ölkələr</a></li>
-            <li><a href="#services">Xidmətlər</a></li>
-            <li><a href="#contact" class="btn-nav">Müraciət et</a></li>
+            <li><a href="#contact">Müraciət</a></li>
         </ul>
     </nav>
 
     <header id="home">
         <div class="hero-content">
-            <h1>Gələcəyini Xaricdə Qur!</h1>
-            <p>Sənəd qəbulundan viza dəstəyinə qədər hər addımda yanındayıq.</p>
-            <a href="#countries" class="btn-main">Ölkələri Kəşf Et</a>
+            <h1>Gələcəyin Sənin Əlindədir</h1>
+            <p>Xaricdə təhsil üzrə mütəxəssis dəstəyi ilə universitet qəbulunu zəmanət altına al.</p>
+            <a href="#contact" class="btn-main">Ödənişsiz Məsləhət</a>
         </div>
     </header>
 
     <section id="countries">
-        <h2>Populyar İstiqamətlər</h2>
+        <div class="section-title">
+            <h2>İstiqamətlər</h2>
+            <p>Seçə biləcəyin ən populyar təhsil ölkələri</p>
+        </div>
+
         <div class="country-grid">
             <div class="country-card">
-                <h3>Almaniya</h3>
-                <p>Pulsuz təhsil və güclü karyera imkanları.</p>
+                <img src="almaniya.jpg" alt="Almaniya" class="country-img">
+                <div class="card-body">
+                    <h3>Almaniya</h3>
+                    <p>Mühəndislik və innovasiya mərkəzi. Pulsuz dövlət universitetləri.</p>
+                </div>
             </div>
+
             <div class="country-card">
-                <h3>Polşa</h3>
-                <p>Avropada ən münasib yaşam və təhsil xərcləri.</p>
+                <img src="turkiye.jpg" alt="Türkiyə" class="country-img">
+                <div class="card-body">
+                    <h3>Türkiyə</h3>
+                    <p>Yaxın məsafə, büdcəyə uyğun və yüksək keyfiyyətli təhsil.</p>
+                </div>
             </div>
+
             <div class="country-card">
-                <h3>İtaliya</h3>
-                <p>Təqaüd proqramları və incəsənətin mərkəzi.</p>
+                <img src="rusiya.jpg" alt="Rusiya" class="country-img">
+                <div class="card-body">
+                    <h3>Rusiya</h3>
+                    <p>Dünya səviyyəli tibb və texniki elmlər, münasib təhsil haqları.</p>
+                </div>
             </div>
+
             <div class="country-card">
-                <h3>Türkiyə</h3>
-                <p>Yaxın məsafə, ortaq mədəniyyət və keyfiyyətli universitetlər.</p>
+                <img src="polsa.jpg" alt="Polşa" class="country-img">
+                <div class="card-body">
+                    <h3>Polşa</h3>
+                    <p>Sürətli viza, Avropa diplomu və ingilis dilli proqramlar.</p>
+                </div>
+            </div>
+
+            <div class="country-card">
+                <img src="ukrayna.jpg" alt="Ukrayna" class="country-img">
+                <div class="card-body">
+                    <h3>Ukrayna</h3>
+                    <p>İmtahansız qəbul imkanları və münasib yaşam xərcləri.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <section id="contact">
+        <div class="section-title">
+            <h2>Müraciət et</h2>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Ad və Soyad" required>
+                <input type="email" placeholder="Email" required>
+                <select required>
+                    <option value="">Ölkəni seçin</option>
+                    <option value="almaniya">Almaniya</option>
+                    <option value="turkiye">Türkiyə</option>
+                    <option value="rusiya">Rusiya</option>
+                    <option value="polsa">Polşa</option>
+                    <option value="ukrayna">Ukrayna</option>
+                </select>
+                <textarea rows="3" placeholder="Mesajınız..."></textarea>
+                <button type="submit" class="btn-main">Göndər</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 EduPath. Bütün hüquqlar qorunur.</p>
+    </footer>
 
 </body>
 </html>
