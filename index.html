@@ -19,8 +19,17 @@
             position: sticky; top: 0; z-index: 1000;
         }
         
-        .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .site-logo { height: 60px; width: auto; display: block; }
+        /* LOGO ÜÇÜN STİLLƏR - Yalnız Şəkil */
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .site-logo {
+            height: 60px; /* Logonun hündürlüyünü buradan tənzimləyə bilərsən */
+            width: auto;
+            display: block;
+        }
 
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 30px; }
@@ -44,7 +53,7 @@
         }
         .btn-main:hover { background: #2563eb; transform: translateY(-2px); }
 
-        /* Modal */
+        /* Popup (Modal) Styles */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.5); display: none; 
@@ -57,34 +66,53 @@
             animation: fadeIn 0.3s ease;
         }
         @keyframes fadeIn { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #94a3b8; }
+        
+        .close-btn {
+            position: absolute; top: 15px; right: 20px; font-size: 24px;
+            cursor: pointer; color: #94a3b8; font-weight: bold;
+        }
+        .close-btn:hover { color: #ef4444; }
+        .modal-content h2 { margin-bottom: 15px; color: #1e293b; }
+        .modal-content p { margin-bottom: 25px; color: #64748b; font-size: 1rem; }
 
         /* Ölkələr Grid */
         #countries { padding: 80px 10%; text-align: center; }
-        .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .country-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px; margin-top: 40px;
+        }
         .country-link { text-decoration: none; color: inherit; display: block; }
-        .country-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; transition: all 0.4s ease; }
-        .country-card:hover { transform: scale(1.05); box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3); }
+        .country-card {
+            background: #fff; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #f1f5f9;
+            transition: all 0.4s ease;
+        }
+        .country-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+        }
         .country-img { width: 100%; height: 180px; object-fit: cover; }
         .card-body { padding: 20px; text-align: left; }
 
-        /* Xidmətlər */
+        /* Xidmətlərimiz Bölməsi */
         #services { padding: 80px 10%; background-color: #ffffff; text-align: center; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .service-card { padding: 40px 30px; background: #f8fafc; border-radius: 20px; transition: 0.3s; border: 1px solid #e2e8f0; }
+        .service-card { 
+            padding: 40px 30px; background: #f8fafc; border-radius: 20px; 
+            transition: 0.3s; border: 1px solid #e2e8f0; 
+        }
         .service-card:hover { background: #3b82f6; transform: translateY(-10px); color: #fff; }
         .service-card:hover h3, .service-card:hover p { color: #fff; }
         .service-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+        .service-card h3 { margin-bottom: 15px; color: #1e293b; }
 
         /* Əlaqə Formu */
         #contact { padding: 80px 10%; background: #f1f5f9; }
         .contact-container { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
         .contact-form { display: flex; flex-direction: column; gap: 15px; }
-        .contact-form input, .contact-form select, .contact-form textarea { padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; outline: none; font-size: 1rem; }
-        
-        .phone-group { display: flex; gap: 10px; }
-        .phone-group select { flex: 1.2; background: #fff; cursor: pointer; }
-        .phone-group input { flex: 2; }
+        .contact-form input, .contact-form select, .contact-form textarea {
+            padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; outline: none; font-size: 1rem;
+        }
 
         footer { padding: 30px; text-align: center; background: #0f172a; color: #94a3b8; }
     </style>
@@ -95,7 +123,7 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
             <h2>Bizim Haqqımızda</h2>
-            <p><strong>EduPath</strong> olaraq 2017-ci ildən bəri fəaliyyət göstəririk. Tələbələrin arzularını reallaşdırmaq üçün buradayıq.</p>
+            <p><strong>EduPath</strong> olaraq 2017-ci ildən bəri fəaliyyət göstəririk. Bu günə qədər 428 tələbənin xaricdə pulsuz və güzəştli təhsil almasına vəsilə olmuşuq. Peşəkar komandamız sənəd qəbulundan viza dəstəyinə qədər hər addımda sizin yanınızdadır!</p>
             <button class="btn-main" onclick="goToContact()">İndi Müraciət Et</button>
         </div>
     </div>
@@ -123,35 +151,89 @@
     <section id="countries">
         <div class="section-title">
             <h2>Əməkdaşlıq etdiyimiz ölkələr:</h2>
+            <p>Seçə biləcəyin ən populyar təhsil ölkələri</p>
         </div>
         <div class="country-grid">
+            
             <a href="germany.html" class="country-link">
                 <div class="country-card">
                     <img src="almaniya.jpg" class="country-img">
-                    <div class="card-body"><h3>Almaniya</h3><p>Mühəndislik və İT sahəsində dünyanın ən yaxşı pulsuz dövlət universitetləri.</p></div>
+                    <div class="card-body">
+                        <h3>Almaniya</h3>
+                        <p>Mühəndislik və İT sahəsində dünyanın ən yaxşı pulsuz dövlət universitetləri.</p>
+                    </div>
                 </div>
             </a>
+
             <a href="turkey.html" class="country-link">
                 <div class="country-card">
                     <img src="turkiye.jpg" class="country-img">
-                    <div class="card-body"><h3>Türkiyə</h3><p>Tibb, Memarlıq və Biznes üzrə yüksək keyfiyyətli təhsil imkanları.</p></div>
+                    <div class="card-body">
+                        <h3>Türkiyə</h3>
+                        <p>Tibb, Memarlıq və Biznes üzrə yüksək keyfiyyətli, büdcəyə uyğun təhsil imkanları.</p>
+                    </div>
                 </div>
             </a>
+
+            <a href="russia.html" class="country-link">
+                <div class="country-card">
+                    <img src="rusiya.jpg" class="country-img">
+                    <div class="card-body">
+                        <h3>Rusiya</h3>
+                        <p>Fundamental elmlər və proqramlaşdırma üzrə güclü akademik baza.</p>
+                    </div>
+                </div>
+            </a>
+
             <a href="poland.html" class="country-link">
                 <div class="country-card">
                     <img src="polsa.jpg" class="country-img">
-                    <div class="card-body"><h3>Polşa</h3><p>Avropa İttifaqı diplomu və sərfəli yaşam xərcləri.</p></div>
+                    <div class="card-body">
+                        <h3>Polşa</h3>
+                        <p>Avropa İttifaqı diplomu, sürətli viza və çoxsaylı ingilis dilli proqramlar.</p>
+                    </div>
                 </div>
             </a>
+
+            <a href="ukraine.html" class="country-link">
+                <div class="country-card">
+                    <img src="ukrayna.jpg" class="country-img">
+                    <div class="card-body">
+                        <h3>Ukrayna</h3>
+                        <p>İmtahansız qəbul, xüsusilə tibb və aviasiya sahələrində sərfəli təhsil.</p>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </section>
 
     <section id="services">
-        <div class="section-title" style="text-align: center;"><h2>Göstərdiyimiz Xidmətlər</h2></div>
+        <div class="section-title">
+            <h2>Göstərdiyimiz Xidmətlər</h2>
+            <p>Sizin xaricdə təhsil yolunuzu asanlaşdırırıq</p>
+        </div>
         <div class="services-grid">
-            <div class="service-card"><span class="service-icon">🎓</span><h3>Universitet Seçimi</h3></div>
-            <div class="service-card"><span class="service-icon">📑</span><h3>Sənəd Qəbulu</h3></div>
-            <div class="service-card"><span class="service-icon">🛂</span><h3>Viza Dəstəyi</h3></div>
+            <div class="service-card">
+                <span class="service-icon">🎓</span>
+                <h3>Universitet Seçimi</h3>
+                <p>Büdcənizə və hədəflərinizə ən uyğun universiteti birlikdə seçirik.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📑</span>
+                <h3>Sənəd Qəbulu</h3>
+                <p>Bütün sənədlərin toplanması və tərcümə olunmasına tam dəstək veririk.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🛂</span>
+                <h3>Viza Dəstəyi</h3>
+                <p>Viza prosesini idarə edir və müsahibələrə peşəkar hazırlıq keçirik.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🏠</span>
+                <h3>Yerləşdirmə</h3>
+                <p>Yataqxana tapılması və ölkədə qarşılanma xidməti göstəririk.</p>
+            </div>
         </div>
     </section>
 
@@ -160,31 +242,14 @@
         <div class="contact-container">
             <form class="contact-form" id="tgForm">
                 <input type="text" id="name" placeholder="Ad və Soyad" required>
-                
-                <div class="phone-group">
-                    <select id="phoneCode" required>
-                        <option value="+994" data-label="🇦🇿">+994 🇦🇿</option>
-                        <option value="+90" data-label="🇹🇷">+90 🇹🇷</option>
-                        <option value="+7" data-label="🇰🇿">+7 🇰🇿</option>
-                        <option value="+998" data-label="🇺🇿">+998 🇺🇿</option>
-                        <option value="+996" data-label="🇰🇬">+996 🇰🇬</option>
-                        <option value="+7" data-label="🇷🇺">+7 🇷🇺</option>
-                        <option value="+49" data-label="🇩🇪">+49 🇩🇪</option>
-                        <option value="+48" data-label="🇵🇱">+48 🇵🇱</option>
-                        <option value="+420" data-label="🇨🇿">+420 🇨🇿</option>
-                    </select>
-                    <input type="tel" id="phone" placeholder="50 123 45 67" required>
-                </div>
-
                 <input type="email" id="email" placeholder="Email" required>
-                <select id="targetCountry" required>
-                    <option value="">Təhsil almaq istədiyiniz ölkə</option>
+                <select id="country" required>
+                    <option value="">Ölkəni seçin</option>
                     <option value="Almaniya">Almaniya</option>
                     <option value="Türkiyə">Türkiyə</option>
+                    <option value="Rusiya">Rusiya</option>
                     <option value="Polşa">Polşa</option>
-                    <option value="Macarıstan">Macarıstan</option>
-                    <option value="Çexiya">Çexiya</option>
-                    <option value="İtaliya">İtaliya</option>
+                    <option value="Ukrayna">Ukrayna</option>
                 </select>
                 <textarea id="message" rows="3" placeholder="Mesajınız..."></textarea>
                 <button type="submit" class="btn-main">Göndər</button>
@@ -196,10 +261,17 @@
 
     <script>
         const modal = document.getElementById('modalOverlay');
+
         function openModal() { modal.style.display = 'flex'; }
         function closeModal() { modal.style.display = 'none'; }
-        function goToContact() { closeModal(); window.location.href = '#contact'; }
-        window.onclick = function(event) { if (event.target == modal) { closeModal(); } }
+        function goToContact() {
+            closeModal();
+            window.location.href = '#contact';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) { closeModal(); }
+        }
 
         // TELEGRAM BOT KODU
         document.getElementById('tgForm').addEventListener('submit', function(e) {
@@ -213,16 +285,11 @@
             const chat_id = "7766487634";
 
             const name = document.getElementById('name').value;
-            const phoneCode = document.getElementById('phoneCode').value; // Yalnız +994 hissəsini götürür
-            const phone = document.getElementById('phone').value;
             const email = document.getElementById('email').value;
-            const targetCountry = document.getElementById('targetCountry').value;
+            const country = document.getElementById('country').value;
             const message = document.getElementById('message').value;
 
-            // Telegrama bayraqsız gedir
-            const fullPhone = phoneCode + " " + phone;
-
-            const full_text = `🚀 *Yeni Müraciət!*\n\n👤 *Ad:* ${name}\n📞 *Telefon:* ${fullPhone}\n📧 *Email:* ${email}\n🌍 *Hədəf Ölkə:* ${targetCountry}\n📝 *Mesaj:* ${message}`;
+            const full_text = `🚀 *Yeni Müraciət!*\n\n👤 *Ad:* ${name}\n📧 *Email:* ${email}\n🌍 *Ölkə:* ${country}\n📝 *Mesaj:* ${message}`;
 
             fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
                 method: 'POST',
