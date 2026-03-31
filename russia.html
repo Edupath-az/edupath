@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <title>Rusiyada Təhsil | EduPath</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f8fafc; color: #334155; }
+        nav { padding: 20px 10%; background: #fff; display: flex; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 600; color: #1e293b; text-decoration: none; }
+        .logo span { color: #3b82f6; }
+        .header-img { width: 100%; height: 350px; object-fit: cover; }
+        .container { max-width: 1000px; margin: -50px auto 50px; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; }
+        .title-flex { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .flag { width: 50px; border-radius: 5px; }
+        h1 { color: #1e293b; }
+        .uni-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .uni-card { border: 1px solid #e2e8f0; border-radius: 15px; overflow: hidden; }
+        .uni-img { width: 100%; height: 200px; object-fit: cover; }
+        .uni-info { padding: 20px; }
+        .uni-info h3 { color: #3b82f6; margin-bottom: 10px; }
+        .back-btn { display: inline-block; margin-top: 30px; padding: 10px 20px; background: #f1f5f9; color: #334155; text-decoration: none; border-radius: 8px; font-weight: 600; }
+        .back-btn:hover { background: #e2e8f0; }
+    </style>
+</head>
+<body>
+    <nav><a href="index.html" class="logo">Edu<span>Path</span></a></nav>
+    <img src="russia_bg.jpg" class="header-img" alt="Rusiya">
+    <div class="container">
+        <div class="title-flex">
+            <img src="russia_flag.png" class="flag" alt="Bayraq">
+            <h1>Rusiyada Təhsil</h1>
+        </div>
+        <p>Rusiya riyaziyyat, fizika, aviasiya və tibb sahələrində dərin tarixi köklərə sahib təhsil sisteminə malikdir.</p>
+        
+        <h2 style="margin-top: 40px; color: #1e293b;">Top Universitetlər</h2>
+        <div class="uni-grid">
+            <div class="uni-card">
+                <img src="msu_uni.jpg" class="uni-img">
+                <div class="uni-info">
+                    <h3>Lomonosov Moskva Dövlət (MQU)</h3>
+                    <p>Rusiyanın bir nömrəli universiteti. Həm arxitekturası, həm də fundamental elmlərdəki gücü ilə məşhurdur.</p>
+                </div>
+            </div>
+            <div class="uni-card">
+                <img src="hse_uni.jpg" class="uni-img">
+                <div class="uni-info">
+                    <h3>Ali İqtisadiyyat Məktəbi (HSE)</h3>
+                    <p>İqtisadiyyat, sosial elmlər və kompüter elmləri üzrə Rusiyanın ən modern universitetidir.</p>
+                </div>
+            </div>
+            <div class="uni-card">
+                <img src="mipt_uni.jpg" class="uni-img">
+                <div class="uni-info">
+                    <h3>Moskva Fizika-Texniki İns. (MIPT)</h3>
+                    <p>Texnologiya və tətbiqi riyaziyyat üzrə Rusiya "MIT"-si hesab olunur.</p>
+                </div>
+            </div>
+        </div>
+        <a href="index.html" class="back-btn">← Ana səhifəyə qayıt</a>
+    </div>
+</body>
+</html>
