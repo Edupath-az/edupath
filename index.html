@@ -14,12 +14,25 @@
         /* Naviqasiya */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 10%; background: #ffffff;
+            padding: 10px 10%; background: #ffffff;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
             position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-size: 24px; font-weight: 600; color: #1e293b; text-decoration: none; }
-        .logo span { color: #3b82f6; }
+        
+        /* LOGO ÜÇÜN YENİ STİLLƏR */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .site-logo {
+            height: 50px; /* Logonun hündürlüyünü buradan tənzimləyə bilərsən */
+            width: auto;
+            margin-right: 10px;
+        }
+        .logo-text { font-size: 24px; font-weight: 600; color: #1e293b; }
+        .logo-text span { color: #3b82f6; }
+
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 30px; }
         nav ul li a { text-decoration: none; color: #64748b; transition: 0.3s; }
@@ -118,7 +131,10 @@
     </div>
 
     <nav>
-        <a href="#" class="logo">Edu<span>Path</span></a>
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="EduPath Logo" class="site-logo">
+            <div class="logo-text">Edu<span>Path</span></div>
+        </a>
         <ul>
             <li><a href="#home">Ana Səhifə</a></li>
             <li><a href="#countries">Ölkələr</a></li>
