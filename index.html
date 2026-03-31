@@ -44,7 +44,7 @@
         /* Popup (Modal) Styles */
         .modal-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5); display: none; /* İlkin olaraq gizli */
+            background: rgba(0, 0, 0, 0.5); display: none; 
             justify-content: center; align-items: center; z-index: 2000;
         }
         .modal-content {
@@ -63,15 +63,21 @@
         .modal-content h2 { margin-bottom: 15px; color: #1e293b; }
         .modal-content p { margin-bottom: 25px; color: #64748b; font-size: 1rem; }
 
-        /* Ölkələr Grid */
+        /* Ölkələr Grid - YENİLƏNDİ (Hover effekti) */
         #countries { padding: 80px 10%; text-align: center; }
         .country-grid {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 25px; margin-top: 40px;
         }
+        .country-link { text-decoration: none; color: inherit; display: block; }
         .country-card {
             background: #fff; border-radius: 20px; overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.03); border: 1px solid #f1f5f9;
+            transition: all 0.4s ease; /* Yumşaq keçid */
+        }
+        .country-card:hover {
+            transform: scale(1.05); /* Qabarma effekti */
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3); /* Mavi parlaq (glow) effekt */
         }
         .country-img { width: 100%; height: 180px; object-fit: cover; }
         .card-body { padding: 20px; text-align: left; }
@@ -121,19 +127,57 @@
             <p>Seçə biləcəyin ən populyar təhsil ölkələri</p>
         </div>
         <div class="country-grid">
-            <div class="country-card"><img src="almaniya.jpg" class="country-img"><div class="card-body"><h3>Almaniya</h3><p>Pulsuz dövlət universitetləri.</p></div></div>
-            <a href="turkey.html" style="text-decoration: none; color: inherit;">
-    <div class="country-card">
-        <img src="turkiye.jpg" class="country-img">
-        <div style="padding:15px;">
-            <h3>Türkiyə</h3>
-            <p>Daha ətraflı məlumat üçün klikləyin.</p>
-        </div>
-    </div>
-</a>
-            <div class="country-card"><img src="rusiya.jpg" class="country-img"><div class="card-body"><h3>Rusiya</h3><p>Tibb və texniki elmlər.</p></div></div>
-            <div class="country-card"><img src="polsa.jpg" class="country-img"><div class="card-body"><h3>Polşa</h3><p>Avropa diplomu imkanı.</p></div></div>
-            <div class="country-card"><img src="ukrayna.jpg" class="country-img"><div class="card-body"><h3>Ukrayna</h3><p>Münasib qiymətlər.</p></div></div>
+            
+            <a href="germany.html" class="country-link">
+                <div class="country-card">
+                    <img src="almaniya.jpg" class="country-img">
+                    <div class="card-body">
+                        <h3>Almaniya</h3>
+                        <p>Mühəndislik və İT sahəsində dünyanın ən yaxşı pulsuz dövlət universitetləri.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="turkey.html" class="country-link">
+                <div class="country-card">
+                    <img src="turkiye.jpg" class="country-img">
+                    <div class="card-body">
+                        <h3>Türkiyə</h3>
+                        <p>Tibb, Memarlıq və Biznes üzrə yüksək keyfiyyətli, büdcəyə uyğun təhsil imkanları.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="russia.html" class="country-link">
+                <div class="country-card">
+                    <img src="rusiya.jpg" class="country-img">
+                    <div class="card-body">
+                        <h3>Rusiya</h3>
+                        <p>Fundamental elmlər və proqramlaşdırma üzrə güclü akademik baza.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="poland.html" class="country-link">
+                <div class="country-card">
+                    <img src="polsa.jpg" class="country-img">
+                    <div class="card-body">
+                        <h3>Polşa</h3>
+                        <p>Avropa İttifaqı diplomu, sürətli viza və çoxsaylı ingilis dilli proqramlar.</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="ukraine.html" class="country-link">
+                <div class="country-card">
+                    <img src="ukrayna.jpg" class="country-img">
+                    <div class="card-body">
+                        <h3>Ukrayna</h3>
+                        <p>İmtahansız qəbul, xüsusilə tibb və aviasiya sahələrində sərfəli təhsil.</p>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </section>
 
@@ -162,26 +206,16 @@
     <script>
         const modal = document.getElementById('modalOverlay');
 
-        function openModal() {
-            modal.style.display = 'flex';
-        }
-
-        function closeModal() {
-            modal.style.display = 'none';
-        }
-
+        function openModal() { modal.style.display = 'flex'; }
+        function closeModal() { modal.style.display = 'none'; }
         function goToContact() {
-            closeModal(); // Popup-ı bağla
-            window.location.href = '#contact'; // Form bölməsinə at
+            closeModal();
+            window.location.href = '#contact';
         }
 
-        // Kənara basanda bağlansın
         window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
+            if (event.target == modal) { closeModal(); }
         }
     </script>
-
 </body>
 </html>
