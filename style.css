@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth; /* Bu sətir animasiyanı aktiv edir */
+}
+
+/* Bölmələrin menyunun altında qalmaması üçün əlavə */
+section {
+    scroll-margin-top: 80px; 
 }
 
 body {
