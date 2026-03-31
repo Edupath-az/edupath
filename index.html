@@ -26,7 +26,7 @@
             text-decoration: none;
         }
         .site-logo {
-            height: 60px; /* Logonun hündürlüyünü buradan tənzimləyə bilərsən */
+            height: 60px;
             width: auto;
             display: block;
         }
@@ -112,6 +112,19 @@
         .contact-form { display: flex; flex-direction: column; gap: 15px; }
         .contact-form input, .contact-form select, .contact-form textarea {
             padding: 12px; border: 1px solid #e2e8f0; border-radius: 10px; outline: none; font-size: 1rem;
+        }
+        
+        /* Telefon nömrəsi üçün xüsusi dizayn */
+        .phone-input-container {
+            display: flex;
+            gap: 5px;
+        }
+        .phone-input-container select {
+            flex: 0.4;
+            min-width: 110px;
+        }
+        .phone-input-container input {
+            flex: 1;
         }
 
         footer { padding: 30px; text-align: center; background: #0f172a; color: #94a3b8; }
@@ -242,9 +255,26 @@
         <div class="contact-container">
             <form class="contact-form" id="tgForm">
                 <input type="text" id="name" placeholder="Ad və Soyad" required>
+                
+                <div class="phone-input-container">
+                    <select id="phoneCode" required>
+                        <option value="+994">🇦🇿 +994</option>
+                        <option value="+90">🇹🇷 +90</option>
+                        <option value="+7">🇷🇺 +7</option>
+                        <option value="+380">🇺🇦 +380</option>
+                        <option value="+39">🇮🇹 +39</option>
+                        <option value="+34">🇪🇸 +34</option>
+                        <option value="+351">🇵🇹 +351</option>
+                        <option value="+993">🇹🇲 +993</option>
+                        <option value="+7">🇰🇿 +7</option>
+                        <option value="+995">🇬🇪 +995</option>
+                    </select>
+                    <input type="tel" id="phone" placeholder="xx-xxx-xx-xx" required>
+                </div>
+
                 <input type="email" id="email" placeholder="Email" required>
                 <select id="country" required>
-                    <option value="">Ölkəni seçin</option>
+                    <option value="">Təhsil almaq istədiyiniz ölkəni seçin</option>
                     <option value="Almaniya">Almaniya</option>
                     <option value="Türkiyə">Türkiyə</option>
                     <option value="Rusiya">Rusiya</option>
@@ -273,6 +303,12 @@
             if (event.target == modal) { closeModal(); }
         }
 
+        // Nömrə formatı üçün avtomatik tire (-) əlavə edən funksiya
+        document.getElementById('phone').addEventListener('input', function (e) {
+            let x = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '') + (x[4] ? '-' + x[4] : '');
+        });
+
         // TELEGRAM BOT KODU
         document.getElementById('tgForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -288,8 +324,13 @@
             const email = document.getElementById('email').value;
             const country = document.getElementById('country').value;
             const message = document.getElementById('message').value;
+            
+            // Telefon və kod birləşdirilir
+            const phoneCode = document.getElementById('phoneCode').value;
+            const phoneNumber = document.getElementById('phone').value;
+            const full_phone = phoneCode + " " + phoneNumber;
 
-            const full_text = `🚀 *Yeni Müraciət!*\n\n👤 *Ad:* ${name}\n📧 *Email:* ${email}\n🌍 *Ölkə:* ${country}\n📝 *Mesaj:* ${message}`;
+            const full_text = `🚀 *Yeni Müraciət!*\n\n👤 *Ad:* ${name}\n📞 *Tel:* ${full_phone}\n📧 *Email:* ${email}\n🌍 *Ölkə:* ${country}\n📝 *Mesaj:* ${message}`;
 
             fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
                 method: 'POST',
