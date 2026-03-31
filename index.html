@@ -19,19 +19,17 @@
             position: sticky; top: 0; z-index: 1000;
         }
         
-        /* LOGO ÜÇÜN YENİ STİLLƏR */
-        .logo-container {
+        /* LOGO ÜÇÜN STİLLƏR - Yalnız Şəkil */
+        .logo-link {
             display: flex;
             align-items: center;
             text-decoration: none;
         }
         .site-logo {
-            height: 50px; /* Logonun hündürlüyünü buradan tənzimləyə bilərsən */
+            height: 60px; /* Logonun hündürlüyünü buradan tənzimləyə bilərsən */
             width: auto;
-            margin-right: 10px;
+            display: block;
         }
-        .logo-text { font-size: 24px; font-weight: 600; color: #1e293b; }
-        .logo-text span { color: #3b82f6; }
 
         nav ul { display: flex; list-style: none; }
         nav ul li { margin-left: 30px; }
@@ -131,9 +129,8 @@
     </div>
 
     <nav>
-        <a href="#" class="logo-container">
+        <a href="#" class="logo-link">
             <img src="logo.png" alt="EduPath Logo" class="site-logo">
-            <div class="logo-text">Edu<span>Path</span></div>
         </a>
         <ul>
             <li><a href="#home">Ana Səhifə</a></li>
